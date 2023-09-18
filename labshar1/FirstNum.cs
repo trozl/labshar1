@@ -1,6 +1,6 @@
 ﻿class FirstNum
 {
-    private double x, y, z;
+    protected double x, y, z;
     private double a, b;
     public void InputXYZ()
     {

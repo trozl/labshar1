@@ -10,7 +10,7 @@ namespace labshar1
     class SecondNum
     {
         private double x1, x2, y1, y2, x3, y3;
-        private double s, r;
+        private double s, r, p;
         private double line1, line2, line3;
         public void InputTrianglePoints()
         {
@@ -27,10 +27,12 @@ namespace labshar1
         }
         public void CalculateInnerCircleRadius()
         {
-            s = 1 / 2 * Math.Abs((x2 - x1) * (y3 - y1) - (x3 - x1)*(y2 - y1));
             line1 = Math.Sqrt((Math.Pow((x1 - x2), 2)) + Math.Pow((y1 - y2), 2));
             line2 = Math.Sqrt((Math.Pow((x3 - x2), 2)) + Math.Pow((y3 - y2), 2));
             line3 = Math.Sqrt((Math.Pow((x1 - x3), 2)) + Math.Pow((y1 - y3), 2));
+            p = (line1 + line2 + line3) / 2;
+            s = Math.Sqrt(p * (p - line1) * (p - line2) * (p - line3));
+            Console.WriteLine($"s = {s}, line1 = {line1}");
             r = (2 * s) / (line1 + line2 + line3);
         }
         public void ShowCalculate()
